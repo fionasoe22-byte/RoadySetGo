@@ -1,12 +1,14 @@
+"use client";
+
 import { TriangleAlert } from "lucide-react";
 
-const improvements = [
-  "Brake earlier",
-  "Reduce rapid acceleration",
-  "Watch speed near intersections",
-];
+type ImprovementsCardProps = {
+  improvements: string[];
+};
 
-export function ImprovementsCard() {
+export function ImprovementsCard({
+  improvements,
+}: ImprovementsCardProps) {
   return (
     <div className="glass-panel p-6">
       <div className="glass-glow" />
@@ -25,7 +27,7 @@ export function ImprovementsCard() {
         <div className="space-y-5">
           {improvements.map((item, index) => (
             <div
-              key={item}
+              key={index}
               className={`flex items-start gap-4 ${
                 index !== improvements.length - 1
                   ? "border-b border-cyan-500/10 pb-4"
@@ -42,7 +44,8 @@ export function ImprovementsCard() {
                 </p>
 
                 <p className="mt-1 text-sm text-slate-400">
-                  AI recommends improving this behaviour for a safer and smoother driving experience.
+                  AI recommends improving this driving habit to achieve safer,
+                  smoother, and more efficient journeys.
                 </p>
               </div>
             </div>
